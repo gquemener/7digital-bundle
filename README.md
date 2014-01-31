@@ -11,7 +11,7 @@ Add the following lines to your composer.json:
 ```json
 {
     "require": {
-        "gquemener/7digital-bundle": "dev-master@dev"
+        "gquemener/7digital-bundle": "~1.0"
     }
 }
 ```
