@@ -1,0 +1,5 @@
+parameters:
+
+services:
+    7digital_api.client:
+        class: SevenDigital\ApiClient
