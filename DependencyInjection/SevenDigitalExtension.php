@@ -10,6 +10,9 @@ use Symfony\Component\DependencyInjection\Reference;
 
 class SevenDigitalExtension extends Extension
 {
+    /**
+     * {@inheritdoc}
+     */
     public function load(array $config, ContainerBuilder $container)
     {
         $configuration = $this->getConfiguration($config, $container);
@@ -31,10 +34,18 @@ class SevenDigitalExtension extends Extension
         $this->registerApiService($container, 'tag');
     }
 
+    /**
+     * Register 7digital API service in the DIC
+     *
+     * @param ContainerBuilder $container
+     * @param string           $alias
+     */
     private function registerApiService(ContainerBuilder $container, $alias)
     {
-        $container->register(sprintf('7digital_api.%s', $alias), sprintf('SevenDigital\Service\%s', ucfirst($alias)))
+        $container
+            ->register(sprintf('7digital_api.%s', $alias), sprintf('SevenDigital\Service\%s', ucfirst($alias)))
             ->setFactoryService('7digital_api_client')
-            ->setFactoryMethod(sprintf('get%sService', ucfirst($alias)));
+            ->setFactoryMethod(sprintf('get%sService', ucfirst($alias)))
+        ;
     }
 }
