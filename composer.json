@@ -16,9 +16,8 @@
     ],
     "minimum-stability": "stable",
     "autoload": {
-        "psr-0": {
-            "SevenDigital": ""
+        "psr-4": {
+            "SevenDigital\\": ""
         }
-    },
-    "target-dir": "SevenDigital"
+    }
 }
